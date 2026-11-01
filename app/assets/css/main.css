@@ -1,0 +1,151 @@
+/* m3e 视觉体系：近黑底、深灰圆角卡、低饱和淡紫、细字重、安静克制 */
+
+:root {
+  --m3e-bg: #17181a;
+  --m3e-surface: #27272a;
+  --m3e-surface-2: #2f2f33;
+  --m3e-surface-3: #38383d;
+  --m3e-border: rgba(255, 255, 255, 0.06);
+  --m3e-border-strong: rgba(255, 255, 255, 0.12);
+
+  --m3e-text: #f1eff6;
+  --m3e-text-2: #b4b0bf;
+  --m3e-text-3: #7c7887;
+
+  --m3e-accent: #cabffa;
+  --m3e-accent-strong: #b3a1f2;
+  --m3e-accent-dim: rgba(202, 191, 250, 0.16);
+  --m3e-accent-ghost: rgba(202, 191, 250, 0.07);
+
+  --m3e-danger: #e0a2a2;
+  --m3e-warn: #d8c08f;
+
+  --m3e-heat-0: #303034;
+  --m3e-heat-1: #3b3745;
+  --m3e-heat-2: #4e4762;
+  --m3e-heat-3: #6d6292;
+  --m3e-heat-4: #9989ce;
+  --m3e-heat-5: #c4b3f7;
+
+  --m3e-radius-card: 22px;
+  --m3e-radius-inner: 13px;
+  --m3e-radius-btn: 11px;
+  --m3e-shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 14px 34px rgba(0, 0, 0, 0.28);
+
+  --m3e-font: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
+/* mtrl 组件主题映射：进度条颜色跟随项目 token，不出现硬编码色。
+   html:root 特异性高于 mtrl 默认的 :root，可覆盖其内置主题。 */
+html:root {
+  --mtrl-sys-color-primary: var(--m3e-accent);
+  --mtrl-sys-color-primary-container: var(--m3e-accent-dim);
+  --mtrl-sys-color-secondary-container: var(--m3e-border);
+  --mtrl-sys-color-on-surface: var(--m3e-text);
+  --mtrl-sys-color-on-surface-variant: var(--m3e-text-2);
+  --mtrl-sys-color-surface-container-low: var(--m3e-surface);
+  --mtrl-sys-color-surface-container: var(--m3e-surface-2);
+  --mtrl-sys-color-surface-container-high: var(--m3e-surface-3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__nuxt {
+  margin: 0;
+  min-height: 100%;
+  background: var(--m3e-bg);
+  color: var(--m3e-text);
+}
+
+body {
+  font-family: var(--m3e-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea {
+  background: var(--m3e-surface-2);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--m3e-text);
+  outline: none;
+  transition: background-color 160ms ease-out, border-color 160ms ease-out;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--m3e-text-3);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--m3e-accent-dim);
+  background: var(--m3e-surface-3);
+}
+
+a {
+  color: var(--m3e-accent);
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--m3e-accent-dim);
+  color: var(--m3e-text);
+}
+
+:focus-visible {
+  outline: 2px solid rgba(202, 191, 250, 0.55);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
